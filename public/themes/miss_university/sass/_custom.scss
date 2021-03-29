@@ -1,0 +1,242 @@
+.btn-circle {
+  border-radius: 50%;
+  line-height: 1;
+  width: 2em;
+  height: 2em;
+  padding: .5em;
+}
+.text-wh {
+  color: #ffffff;
+}
+.col-20p {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+@media (min-width: 576px) {
+  .col-sm-20p {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media (min-width: 768px) {
+  .col-md-20p {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media (min-width: 992px) {
+  .col-lg-20p {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media (min-width: 1200px) {
+  .col-xl-20p {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media (min-width: 1500px) {
+  .col-xxl-20p {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+
+.header-banner {
+  position: relative;
+  .school-logo {
+    position: absolute;
+    bottom: 18%;
+    left: 3%;
+  }
+  .candidate-name {
+    position: absolute;
+    bottom: 6%;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    left: 3%;
+  }
+  .candidate-sbd {
+    position: absolute;
+    bottom: 6%;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    font-style: normal;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    right: 3%
+  }
+  .banner-item {
+    img {
+      width: 100%;
+    }
+  }
+  @media (min-width: 420px) {
+
+    .school-logo {
+      bottom: 20%;
+      left: 3%;
+    }
+    .candidate-name {
+      bottom: 10%;
+      font-size: 21px;
+      left: 3%;
+      letter-spacing: .2em;
+    }
+    .candidate-sbd {
+      bottom: 10%;
+      font-size: 21px;
+      right: 3%;
+      letter-spacing: .2em;
+    }
+  }
+  @media (min-width: 576px) {
+
+    .school-logo {
+      bottom: 20%;
+      left: 5%;
+    }
+    .candidate-name {
+      bottom: 10%;
+      font-size: 24px;
+      left: 5%;
+      letter-spacing: .25em;
+    }
+    .candidate-sbd {
+      bottom: 10%;
+      font-size: 24px;
+      right: 8%;
+      letter-spacing: .25em;
+    }
+  }
+  @media (min-width: 768px) {
+
+    .school-logo {
+      bottom: 22%;
+      left: 5%;
+    }
+    .candidate-name {
+      bottom: 10%;
+      font-size: 28px;
+      left: 5%;
+      letter-spacing: .3em;
+    }
+    .candidate-sbd {
+      bottom: 10%;
+      font-size: 28px;
+      right: 8%;
+      letter-spacing: .3em;
+    }
+  }
+  @media (min-width: 992px) {
+
+    .school-logo {
+      bottom: 24%;
+      left: 5%;
+    }
+    .candidate-name {
+      bottom: 10%;
+      font-size: 32px;
+      left: 6%;
+      letter-spacing: .4em;
+    }
+    .candidate-sbd {
+      bottom: 10%;
+      font-size: 32px;
+      right: 12%;
+      letter-spacing: .4em;
+    }
+  }
+  @media (min-width: 1200px) {
+
+    .school-logo {
+      bottom: 25%;
+      left: 8.85%;
+    }
+    .candidate-name {
+      bottom: 12%;
+      font-size: 36px;
+      left: 8.85%;
+    }
+    .candidate-sbd {
+      bottom: 12%;
+      font-size: 36px;
+      right: 13.9%
+    }
+  }
+}
+.activity-next, .activity-prev{
+  position: absolute;
+  background-color: rgba(0, 0, 0, .5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  line-height: 1em;
+  transition: all .3s linear;
+  color: #fff;
+  &:hover, &:focus {
+    box-shadow: 0 0 6px rgba(68, 68, 68, .5);
+    outline: none;
+  }
+  @media (min-width: 768px) {
+    width: 50px;
+    height: 50px;
+    font-size: 36px;
+  }
+  @media (min-width: 1200px) {
+    width: 80px;
+    height: 80px;
+    font-size: 48px;
+  }
+}
+.activity-next{
+  top: 25%;
+  right: 0;
+  transform: translateX(40%);
+  @media (max-width: 480px) {
+    transform: translateX(30%);
+  }
+}
+.activity-prev{
+  top: 25%;
+  left: 0;
+  transform: translateX(-40%);
+  @media (max-width: 480px) {
+    transform: translateX(-30%);
+  }
+}
+.bg-wh {
+  background: #fff !important;
+}
+.slick-slide img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.btn_vote {
+  display: inline-block;
+  border-radius: 66px;
+  transition: all .3s linear;
+  border: none;
+  padding: 0;
+  outline: none;
+  &:hover, &:focus {
+    text-decoration: none;
+    box-shadow: 0 0 5px rgba(68, 68, 68, .5);
+  }
+}

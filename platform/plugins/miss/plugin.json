@@ -1,0 +1,9 @@
+{
+    "name": "Miss",
+    "namespace": "Botble\\Miss\\",
+    "provider": "Botble\\Miss\\Providers\\MissServiceProvider",
+    "author": "N/A",
+    "url": "N/A",
+    "version": "1.0",
+    "description": "The description for module miss"
+}

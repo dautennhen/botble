@@ -1,0 +1,10 @@
+{
+    "name": "Miss University",
+    "namespace": "Theme\\Missuniversity\\",
+    "description": "Miss University",
+    "author": "vitop",
+    "version": "0.1",
+    "required_plugins": [
+
+    ]
+}

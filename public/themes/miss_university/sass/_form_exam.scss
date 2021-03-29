@@ -1,0 +1,198 @@
+.exam-register {
+  border: 1px solid #d5d5d5;
+  background-color: #ffffff;
+  .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110px;
+    background: url("../images/exam-register/bg@2x.png");
+    @media (min-width: 576px) {
+      height: 120px;
+    }
+    @media (min-width: 768px) {
+      height: 130px;
+    }
+    @media (min-width: 992px) {
+      height: 150px;
+    }
+    @media (min-width: 1200px) {
+      height: 187px;
+    }
+    img.logo {
+      height: 80px;
+      @media (min-width: 576px) {
+        height: 90px;
+      }
+      @media (min-width: 768px) {
+        height: 100px;
+      }
+      @media (min-width: 992px) {
+        height: 120px;
+      }
+      @media (min-width: 1200px) {
+        height: 141px;
+      }
+    }
+  }
+  .body {
+    padding: 15px 0;
+    .title {
+      font-size: 20px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .exam-register-form {
+      margin: auto;
+      max-width: 678px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #666666;
+      .form-group {
+        margin-bottom: 22px;
+      }
+      .form-control {
+        height: 48px;
+        background-color: rgb(173 173 173 / 7%);
+        border: 1px solid rgb(173 173 173 / 7%);
+        border-radius: 0.5rem;
+        outline: none;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+      .btn-submit {
+        background: url("../images/exam-register/vote_button@2x.png") no-repeat center;
+        background-size: contain;
+        margin-top: 20px;
+        padding: 12px 40px;
+        outline: none;
+        box-shadow: none;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        &.btn-back {
+          background: url("../images/exam-register/back_btn.png") no-repeat center;
+          background-size: contain;
+          min-width: 150px;
+        }
+      }
+      .btn-upload {
+        color: #ffffff;
+        background-color: #004A21;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+        outline: none;
+        box-shadow: none;
+        @media screen and (min-width: 480px){
+          padding-left: 32px;
+          padding-right: 32px;
+        }
+      }
+      select {
+        cursor: pointer;
+        /* for Firefox */
+        -moz-appearance: none;
+        /* for Chrome */
+        -webkit-appearance: none;
+        /* For IE10 */
+        &::-ms-expand {
+          display: none;
+        }
+      }
+      .select-selected {
+        position: relative;
+        &:after {
+          position: absolute;
+          content: "";
+          top: 50%;
+          transform: translateY(-50%);
+          right: 16px;
+          width: 0;
+          height: 0;
+          border: 0.3rem solid transparent;
+          border-color: #212529eb transparent transparent transparent;
+        }
+        option:first-child {
+          color: #666666;
+        }
+      }
+      textarea {
+        resize: none;
+        &.form-control {
+          height: auto;
+        }
+      }
+      .image-input-group {
+        img {
+          cursor: pointer;
+        }
+        &:last-child {
+          @media screen and (min-width: 992px){
+            margin-left: 48px;
+          }
+        }
+      }
+      #fileText {
+        display: inline-block;
+        width: 230px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        @media screen and (min-width: 480px){
+          width: 330px;
+        }
+        @media screen and (min-width: 768px){
+          width: auto;
+        }
+      }
+      .term {
+        @media screen and (min-width: 992px){
+          margin: 0 -16px;
+        }
+        a {
+          color: #00BC87;
+          font-weight: 600;
+          text-decoration: none;
+        }
+      }
+    }
+    @media (min-width: 1200px) {
+      padding: 48px 0;
+      .title {
+        font-size: 28px;
+        margin-bottom: 55px;
+      }
+
+      .form-control {
+        height: 57px;
+      }
+    }
+  }
+  #form-1, #form-2 {
+    opacity: 0;
+    flex: 0 0 100%;
+    transform: translateX(-100vw);
+    transition: all .35s ease-in-out;
+    order: 2;
+    height: 0;
+    &.active {
+      opacity: 1;
+      width: 100%;
+      height: auto;
+      transform: unset;
+      z-index: 1;
+      order: 1;
+    }
+    &:not(.active) {
+      padding: 0;
+      z-index: -1;
+    }
+  }
+}

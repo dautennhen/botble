@@ -1,0 +1,40 @@
+footer {
+  margin-top: 60px;
+  background: url("../images/3-layers.jpg") no-repeat center center;
+  background-size: cover;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  font-size: 14px;
+  color: #ffffff;
+  .footer-logo {
+    margin-bottom: 30px;
+  }
+  hr {
+    background-color: #ffffff;
+  }
+  .copy-right {
+
+  }
+  a {
+    color: #ffffff;
+    &:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    &.nav-link {
+      margin-bottom: 8px;
+      padding: 8px 0;
+    }
+  }
+  .social-link {
+    font-size: 23px;
+    padding-top: 18px;
+    margin: 0 -12px;
+    > div {
+      padding: 0 12px;
+    }
+  }
+  .social-title {
+    padding: 8px 0;
+  }
+}
