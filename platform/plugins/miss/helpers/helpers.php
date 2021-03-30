@@ -1,5 +1,7 @@
 <?php
 
+use Botble\Miss\Repositories\Interfaces\HoatdongInterface;
+use Botble\Miss\Repositories\Interfaces\ThachthucInterface;
 use Botble\Miss\Repositories\Interfaces\ThisinhInterface;
 use Botble\Miss\Repositories\Interfaces\TruongInterface;
 
@@ -96,5 +98,26 @@ if (!function_exists('searchThisinh')) {
     function searchThisinh()
     {
         return app(ThisinhInterface::class)->search();
+    }
+}
+
+if (!function_exists('get_ThachThuc')) {
+    function get_ThachThuc()
+    {
+        return app(ThachthucInterface::class)->getThachThuc();
+    }
+}
+
+if (!function_exists('get_TeamById')) {
+    function get_TeamById($id)
+    {
+        return app(ThachthucInterface::class)->getTeamById($id);
+    }
+}
+
+if (!function_exists('get_HoatDongByTeam')) {
+    function get_HoatDongByTeam($id)
+    {
+        return app(HoatdongInterface::class)->getByTeam($id);
     }
 }

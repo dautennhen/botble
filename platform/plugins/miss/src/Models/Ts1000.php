@@ -6,7 +6,7 @@ use Botble\Base\Traits\EnumCastable;
 use Botble\Base\Enums\BaseStatusEnum;
 use Botble\Base\Models\BaseModel;
 
-class Thachthuc extends BaseModel
+class Ts1000 extends BaseModel
 {
     use EnumCastable;
 
@@ -15,24 +15,13 @@ class Thachthuc extends BaseModel
      *
      * @var string
      */
-    protected $table = 'thachthucs';
+    protected $table = 'ts1000s';
 
     /**
      * @var array
      */
     protected $fillable = [
-       'ten_team',
-       'huan_luyen_vien',
-       'ts1',
-       'ts2',
-       'ts3',
-       'ts4',
-       'ts5',
-       'ts6',
-       'ts7',
-       'ts8',
-       'image',
-       'avatar_hlv',
+        'name',
         'status',
     ];
 

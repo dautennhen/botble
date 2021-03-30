@@ -115,4 +115,43 @@ return [
         'flag'        => 'thachthuc.destroy',
         'parent_flag' => 'thachthuc.index',
     ],
+    [
+        'name' => 'Ts1000s',
+        'flag' => 'ts1000.index',
+    ],
+    [
+        'name'        => 'Create',
+        'flag'        => 'ts1000.create',
+        'parent_flag' => 'ts1000.index',
+    ],
+    [
+        'name'        => 'Edit',
+        'flag'        => 'ts1000.edit',
+        'parent_flag' => 'ts1000.index',
+    ],
+    [
+        'name'        => 'Delete',
+        'flag'        => 'ts1000.destroy',
+        'parent_flag' => 'ts1000.index',
+    ],
+
+    [
+        'name' => 'Hoatdongs',
+        'flag' => 'hoatdong.index',
+    ],
+    [
+        'name'        => 'Create',
+        'flag'        => 'hoatdong.create',
+        'parent_flag' => 'hoatdong.index',
+    ],
+    [
+        'name'        => 'Edit',
+        'flag'        => 'hoatdong.edit',
+        'parent_flag' => 'hoatdong.index',
+    ],
+    [
+        'name'        => 'Delete',
+        'flag'        => 'hoatdong.destroy',
+        'parent_flag' => 'hoatdong.index',
+    ],
 ];

@@ -7,6 +7,7 @@ use Botble\Miss\Repositories\Interfaces\ThisinhInterface;
 use Theme\Missuniversity\Models\Voteall as Voteall;
 use Illuminate\Pagination\Paginator;
 use Request;
+use Theme\Missuniversity\Models\Thisinh;
 
 class ThisinhRepository extends RepositoriesAbstract implements ThisinhInterface
 {
@@ -198,5 +199,6 @@ class ThisinhRepository extends RepositoriesAbstract implements ThisinhInterface
         $data = $this->model->whereRaw(' MATCH(ho, ten, so_bao_danh) AGAINST("'.$search_value.'" IN NATURAL LANGUAGE MODE)');
         return $this->applyBeforeExecuteQuery($data)->paginate($paginate);
     }
+
 
 }

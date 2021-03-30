@@ -15,5 +15,7 @@ class Plugin extends PluginOperationAbstract
         Schema::dropIfExists('thisinhs');
         Schema::dropIfExists('photos');
         Schema::dropIfExists('thachthucs');
+        Schema::dropIfExists('ts1000s');
+        Schema::dropIfExists('hoatdongs');
     }
 }

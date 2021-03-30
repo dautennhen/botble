@@ -11,10 +11,11 @@ use Botble\Table\Abstracts\TableAbstract;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Yajra\DataTables\DataTables;
 use Botble\Miss\Models\Thisinh;
-use Botble\Miss\Models\Truong;
 use Botble\Miss\Repositories\Interfaces\TruongInterface;
 use Html;
 use RvMedia;
+use Carbon\Carbon;
+use DB;
 
 class ThisinhTable extends TableAbstract
 {
@@ -45,12 +46,13 @@ class ThisinhTable extends TableAbstract
      * @param ThisinhInterface $thisinhRepository
      */
     public function __construct(
-        DataTables $table, 
-        UrlGenerator $urlGenerator, 
+        DataTables $table,
+        UrlGenerator $urlGenerator,
         ThisinhInterface $thisinhRepository,
         TruongInterface $truongRepository)
     {
         $this->repository = $thisinhRepository;
+        $this->truongRepository = $truongRepository;
         $this->setOption('id', 'plugins-thisinh-table');
         $this->truongRepository = $truongRepository;
         parent::__construct($table, $urlGenerator);
@@ -165,7 +167,20 @@ class ThisinhTable extends TableAbstract
             'thisinhs.vong_top_40',
             'thisinhs.vong_top_35',
         ];
-
+        // $statistics_sql = ["SELECT so_bao_danh, id_truong, luot_bau_chon
+        //                     FROM
+        //                     (
+        //                     SELECT so_bao_danh, id_truong, luot_bau_chon,
+        //                     @top_voted := IF(@current_truong = id_truong,
+        //                                             @top_voted + 1,
+        //                                             1
+        //                                         ) AS top_voted,
+        //                     @current_truong := id_truong
+        //                     FROM thisinhs
+        //                     ORDER BY id_truong, luot_bau_chon DESC
+        //                     ) ranked
+        //                     WHERE top_voted <= 5"];
+        // $query  = DB::select(DB::raw($statistics_sql));
         $query = $model->select($select);
 
         return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
@@ -279,19 +294,15 @@ class ThisinhTable extends TableAbstract
     {
         return [
             'thisinhs.id_truong' => [
-                'title'    => 'Danh sách thí sinh mỗi trường',
+                'title'    => 'Thí sinh mỗi trường',
                 'type'     => 'select',
                 'validate' => 'required|max:120',
                 'callback' => 'getFiltersTruong',
             ],
-            'thisinhs.avatar' => [
-                'title'    => 'Ảnh đại diện',
-                'type'     => 'text',
-                'validate' => 'required|max:120',
-            ],
             // 'thisinhs.created_at' => [
             //     'title' => trans('core/base::tables.created_at'),
             //     'type'  => 'date',
+            //     'validate' => 'required',
             // ],
         ];
     }
@@ -299,10 +310,38 @@ class ThisinhTable extends TableAbstract
     /**
      * @return array
      */
-    
+
     public function getFilters(): array
     {
-        return $this->getBulkChanges();
+        // return $this->getBulkChanges();
+        return [
+            'thisinhs.luot_bau_chon' => [
+                'title'    => 'Lượt bầu chọn',
+                'type'     => 'select',
+                'validate' => 'required|max:120',
+                'default_value'     => '0',
+                'callback' => 'getLuotBau',
+            ],
+            'thisinhs.id_truong'         => [
+                'title'    => 'Trường ĐH',
+                'type'     => 'select-search',
+                'validate' => 'required',
+                'callback' => 'getTruongs',
+            ],
+            // 'thisinhs.created_at' => [
+            //     'title' => trans('core/base::tables.created_at'),
+            //     'type'  => 'date',
+            // ],
+        ];
+    }
+    public function getTruongs(): array
+    {
+        return $this->truongRepository->pluck('ten_truong', 'id');
+    }
+    
+    public function getLuotBau(): array
+    {
+        return [5, 10, 15, 20];
     }
     /**
      * @return array
@@ -310,6 +349,25 @@ class ThisinhTable extends TableAbstract
     public function getFiltersTruong(): array
     {
         return $this->truongRepository->pluck('truongs.ten_truong', 'truongs.id');
+    }
+    public function applyFilterCondition($query, string $key, string $operator, ?string $value)
+    {
+
+        switch ($key) {
+            // case 'thisinhs.created_at':
+            //     if (!$value) {
+            //         break;
+            //     }
+
+            //     $value = Carbon::createFromFormat(config('core.base.general.date_format.date'), $value)->toDateString();
+            //     return $query->whereDate($key,  $operator, $value)->orderBy('thisinhs.created_at','asc')->limit(2)->get();
+
+            case 'thisinhs.luot_bau_chon':
+                return $query->orderBy('thisinhs.luot_bau_chon','desc')->limit($value);
+
+        }
+
+        return parent::applyFilterCondition($query, $key, $operator, $value);
     }
     public function getDefaultButtons(): array
     {

@@ -18,3 +18,9 @@ if (!defined('PHOTO_MODULE_SCREEN_NAME')) {
 if (!defined('THACHTHUC_MODULE_SCREEN_NAME')) {
     define('THACHTHUC_MODULE_SCREEN_NAME', 'thachthuc');
 }
+if (!defined('TS1000_MODULE_SCREEN_NAME')) {
+    define('TS1000_MODULE_SCREEN_NAME', 'ts1000');
+}
+if (!defined('HOATDONG_MODULE_SCREEN_NAME')) {
+    define('HOATDONG_MODULE_SCREEN_NAME', 'hoatdong');
+}

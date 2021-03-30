@@ -103,6 +103,10 @@ class ThachthucForm extends FormAbstract
                 'label'      => __('Logo trường'),
                 'label_attr' => ['class' => 'control-label required'],
             ])
+            ->add('avatar_hlv', 'mediaImage', [
+                'label'      => __('Ảnh HLV'),
+                'label_attr' => ['class' => 'control-label required'],
+            ])
             ->add('status', 'customSelect', [
                 'label'      => trans('core/base::tables.status'),
                 'label_attr' => ['class' => 'control-label required'],

@@ -52,6 +52,22 @@ Route::group(['namespace' => 'Botble\Miss\Http\Controllers', 'middleware' => ['w
                 'permission' => 'thachthuc.destroy',
             ]);
         });
+        Route::group(['prefix' => 'ts1000s', 'as' => 'ts1000.'], function () {
+            Route::resource('', 'Ts1000Controller')->parameters(['' => 'ts1000']);
+            Route::delete('items/destroy', [
+                'as'         => 'deletes',
+                'uses'       => 'Ts1000Controller@deletes',
+                'permission' => 'ts1000.destroy',
+            ]);
+        });
+        Route::group(['prefix' => 'hoatdongs', 'as' => 'hoatdong.'], function () {
+            Route::resource('', 'HoatdongController')->parameters(['' => 'hoatdong']);
+            Route::delete('items/destroy', [
+                'as'         => 'deletes',
+                'uses'       => 'HoatdongController@deletes',
+                'permission' => 'hoatdong.destroy',
+            ]);
+        });
 
     });
 

@@ -168,15 +168,6 @@ class ThisinhForm extends FormAbstract
                 ],
             ])
 
-            ->add('que_quan', 'text', [
-                'label'      => 'Quê quán',
-                'label_attr' => ['class' => 'control-label required'],
-                'attr'       => [
-                    'placeholder'  => 'Ví dụ: Thái Bình',
-                    'data-counter' => 120,
-                ],
-            ])
-
             ->add('luot_xem_profile', 'number', [
                 'label'      => 'Lượt xem profile',
                 'label_attr' => ['class' => 'control-label required'],
@@ -217,25 +208,25 @@ class ThisinhForm extends FormAbstract
                 'label'      => 'Vòng loại',
                 'label_attr' => ['class' => 'control-label'],
                 'choices'    => ['Ẩn','Hiện'],
-                'default_value' => 1,
+                'default_value' => 0,
             ])
             ->add('vong_top_200', 'customSelect', [
                 'label'      => 'Vòng top 200',
                 'label_attr' => ['class' => 'control-label'],
                 'choices'    => ['Ẩn','Hiện'],
-                'default_value' => 1,
+                'default_value' => 0,
             ])
             ->add('vong_top_40', 'customSelect', [
                 'label'      => 'Vòng top 40',
                 'label_attr' => ['class' => 'control-label'],
                 'choices'    => ['Ẩn','Hiện'],
-                'default_value' => 1,
+                'default_value' => 0,
             ])
             ->add('vong_top_35', 'customSelect', [
                 'label'      => 'Vòng top 35',
                 'label_attr' => ['class' => 'control-label'],
                 'choices'    => ['Ẩn','Hiện'],
-                'default_value' => 1,
+                'default_value' => 0,
             ])
             ->add('video', 'text', [
                 'label'      => 'Video',

@@ -5,6 +5,7 @@ namespace Botble\Miss\Tables;
 use Auth;
 use BaseHelper;
 use Botble\Base\Enums\BaseStatusEnum;
+use RvMedia;
 use Botble\Miss\Repositories\Interfaces\ThachthucInterface;
 use Botble\Table\Abstracts\TableAbstract;
 use Illuminate\Contracts\Routing\UrlGenerator;
@@ -74,6 +75,18 @@ class ThachthucTable extends TableAbstract
                 return Html::image(RvMedia::getImageUrl($item->image, 'thumb', false, RvMedia::getDefaultImage()),
                     $item->image, ['width' => 70]);
             })
+            ->editColumn('avatar_hlv', function ($item) {
+                if ($this->request()->input('action') == 'csv') {
+                    return RvMedia::getImageUrl($item->avatar_hlv, null, false, RvMedia::getDefaultImage());
+                }
+
+                if ($this->request()->input('action') == 'excel') {
+                    return RvMedia::getImageUrl($item->avatar_hlv, 'thumb', false, RvMedia::getDefaultImage());
+                }
+
+                return Html::image(RvMedia::getImageUrl($item->avatar_hlv, 'thumb', false, RvMedia::getDefaultImage()),
+                    $item->avatar_hlv, ['width' => 70]);
+            })
 
 
             ->editColumn('created_at', function ($item) {
@@ -110,6 +123,7 @@ class ThachthucTable extends TableAbstract
             'thachthucs.ts7',
             'thachthucs.ts8',
             'thachthucs.image',
+            'thachthucs.avatar_hlv',
             'thachthucs.created_at',
             'thachthucs.status',
         ];
@@ -143,6 +157,11 @@ class ThachthucTable extends TableAbstract
             'image' => [
                 'name'  => 'thachthucs.image',
                 'title' => 'Logo trường',
+                'class' => 'text-left',
+            ],
+            'avatar_hlv' => [
+                'name'  => 'thachthucs.avatar_hlv',
+                'title' => 'Ảnh HLV',
                 'class' => 'text-left',
             ],
             'created_at' => [

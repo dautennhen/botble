@@ -51,6 +51,16 @@ class MissServiceProvider extends ServiceProvider
                 new \Botble\Miss\Repositories\Eloquent\ThachthucRepository(new \Botble\Miss\Models\Thachthuc)
             );
         });
+        $this->app->bind(\Botble\Miss\Repositories\Interfaces\Ts1000Interface::class, function () {
+            return new \Botble\Miss\Repositories\Caches\Ts1000CacheDecorator(
+                new \Botble\Miss\Repositories\Eloquent\Ts1000Repository(new \Botble\Miss\Models\Ts1000)
+            );
+        });
+        $this->app->bind(\Botble\Miss\Repositories\Interfaces\HoatdongInterface::class, function () {
+            return new \Botble\Miss\Repositories\Caches\HoatdongCacheDecorator(
+                new \Botble\Miss\Repositories\Eloquent\HoatdongRepository(new \Botble\Miss\Models\Hoatdong)
+            );
+        });
 
         Helper::autoload(__DIR__ . '/../../helpers');
     }
@@ -134,6 +144,26 @@ class MissServiceProvider extends ServiceProvider
                 'icon'        => null,
                 'url'         => route('thachthuc.index'),
                 'permissions' => ['thachthuc.index'],
+            ]);
+
+            dashboard_menu()->registerItem([
+                'id'          => 'cms-plugins-ts1000',
+                'priority'    => 0,
+                'parent_id'   => 'cms-plugins-miss',
+                'name'        => 'plugins/miss::ts1000.name',
+                'icon'        => null,
+                'url'         => route('ts1000.index'),
+                'permissions' => ['ts1000.index'],
+            ]);
+
+            dashboard_menu()->registerItem([
+                'id'          => 'cms-plugins-hoatdong',
+                'priority'    => 0,
+                'parent_id'   => 'cms-plugins-miss',
+                'name'        => 'plugins/miss::hoatdong.name',
+                'icon'        => null,
+                'url'         => route('hoatdong.index'),
+                'permissions' => ['hoatdong.index'],
             ]);
         });
     }

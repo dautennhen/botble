@@ -6,7 +6,7 @@ use Botble\Base\Enums\BaseStatusEnum;
 use Botble\Support\Http\Requests\Request;
 use Illuminate\Validation\Rule;
 
-class ThachthucRequest extends Request
+class HoatdongRequest extends Request
 {
 
     /**
@@ -17,8 +17,8 @@ class ThachthucRequest extends Request
     public function rules()
     {
         return [
-            // 'name'   => 'required',
-            // 'status' => Rule::in(BaseStatusEnum::values()),
+            'name'   => 'required',
+            'status' => Rule::in(BaseStatusEnum::values()),
         ];
     }
 }
