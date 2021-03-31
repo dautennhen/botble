@@ -3,6 +3,7 @@
 namespace Botble\Miss\Exports;
 
 use Botble\Base\Enums\BaseStatusEnum;
+use Maatwebsite\Excel\Events\Event;
 use Botble\Table\Supports\TableExportHandler;
 use Maatwebsite\Excel\Events\AfterSheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
@@ -14,6 +15,22 @@ class ThiSinhExport extends TableExportHandler
     /**
      * {@inheritDoc}
      */
+
+    //only draw image if != placeholder
+    protected function drawImg(Event $event, string $column, int $row){
+        $image = $event->sheet->getDelegate()
+        ->getCell($column . $row)
+        ->getValue();
+        // dd(strcmp($image, '/vendor/core/core/base/images/placeholder.png'));
+        if (strcmp($image, '/vendor/core/core/base/images/placeholder.png') != 0) {
+            $this->drawingImage($event, $column, $row);
+        } else {
+            $event->sheet->getDelegate()
+                ->getCell($column . $row)
+                ->setValue('');
+        }
+    }
+
     protected function afterSheet(AfterSheet $event)
     {
         parent::afterSheet($event);
@@ -63,19 +80,19 @@ class ThiSinhExport extends TableExportHandler
                 //     ]
                 // ],
             ];
-
+            // dd($event);
             $event->sheet->getDelegate()->getStyle('A'.$index.':AB'.$index)
             ->applyFromArray($index % 2 == 0 ? $style1 : $style2);
 
-            $this->drawingImage($event, 'B', $index);
-            $this->drawingImage($event, 'C', $index);
-            $this->drawingImage($event, 'D', $index);
-            $this->drawingImage($event, 'V', $index);
-            $this->drawingImage($event, 'W', $index);
-            $this->drawingImage($event, 'X', $index);
-            $this->drawingImage($event, 'Y', $index);
-            $this->drawingImage($event, 'Z', $index);
-            $this->drawingImage($event, 'AA', $index);
+            $this->drawImg($event, 'B', $index);
+            $this->drawImg($event, 'C', $index);
+            $this->drawImg($event, 'D', $index);
+            $this->drawImg($event, 'V', $index);
+            $this->drawImg($event, 'W', $index);
+            $this->drawImg($event, 'X', $index);
+            $this->drawImg($event, 'Y', $index);
+            $this->drawImg($event, 'Z', $index);
+            $this->drawImg($event, 'AA', $index);
 
             $ten_truong = $event->sheet->getDelegate()
                 ->getStyle('G' . $index)

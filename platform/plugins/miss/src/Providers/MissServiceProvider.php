@@ -68,7 +68,7 @@ class MissServiceProvider extends ServiceProvider
     public function boot()
     {
         // \Gallery::registerModule([Photo::class]);
-        // \Gallery::registerModule([Thisinh::class]);
+         \Gallery::registerModule([Thisinh::class]);
 
         $this->setNamespace('plugins/miss')
             ->loadAndPublishConfigurations(['permissions'])

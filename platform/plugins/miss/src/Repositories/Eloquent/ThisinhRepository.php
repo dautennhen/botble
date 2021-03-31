@@ -196,7 +196,7 @@ class ThisinhRepository extends RepositoriesAbstract implements ThisinhInterface
 
     public function search($paginate = 20) {
         $search_value = Request::input('search_value');
-        $data = $this->model->whereRaw(' MATCH(ho, ten, so_bao_danh) AGAINST("'.$search_value.'" IN NATURAL LANGUAGE MODE)');
+        $data = $this->model->whereRaw(' MATCH(ho, ten, so_bao_danh) AGAINST(? IN NATURAL LANGUAGE MODE)',[$search_value])->where('vong_loai','1');
         return $this->applyBeforeExecuteQuery($data)->paginate($paginate);
     }
 

@@ -243,7 +243,7 @@ class ThisinhForm extends FormAbstract
                     'class' => 'form-group col-md-2',
                 ],
             ])
-            ->add('avatar', 'mediaImage', [
+            ->add('avatar', 'mediaImages', [
                 'label'      => 'Ảnh chân dung',
                 'label_attr' => ['class' => 'control-label required'],
             ])
