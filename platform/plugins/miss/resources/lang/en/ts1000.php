@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'name'   => '1000 TS đăng ký đầu tiên',
+    'name'   => 'Danh sách thí sinh',
     'create' => 'New ts1000',
     'edit'   => 'Edit ts1000',
 ];

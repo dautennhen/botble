@@ -52,9 +52,9 @@ class HoatdongTable extends TableAbstract
             ->eloquent($this->query())
             ->editColumn('id_team', function ($item) {
                 if (!Auth::user()->hasPermission('hoatdong.edit')) {
-                    return $item->name;
+                    return $item->id_team;
                 }
-                return Html::link(route('hoatdong.edit', $item->id), $item->name);
+                return Html::link(route('hoatdong.edit', $item->id), $item->id_team);
             })
             ->editColumn('checkbox', function ($item) {
                 return $this->getCheckbox($item->id);
@@ -66,7 +66,7 @@ class HoatdongTable extends TableAbstract
                 return BaseHelper::formatDate($item->created_at);
             })
             ->editColumn('trang_thai', function ($item) {
-                return $item->trang_thai;
+                return $item->trang_thai == 1?'Hiện':'Ẩn';
             });
 
         return apply_filters(BASE_FILTER_GET_LIST_DATA, $data, $this->repository->getModel())

@@ -19,14 +19,14 @@ class ThachthucForm extends FormAbstract
             ->setupModel(new Thachthuc)
             ->setValidatorClass(ThachthucRequest::class)
             ->withCustomFields()
-            ->add('ten_team', 'text', [
-                'label'      => 'Tên team',
-                'label_attr' => ['class' => 'control-label required'],
-                'attr'       => [
-                    'placeholder'  => 'VD: DHHS',
-                    'data-counter' => 120,
-                ],
-            ])
+            // ->add('ten_team', 'text', [
+            //     'label'      => 'Tên team',
+            //     'label_attr' => ['class' => 'control-label required'],
+            //     'attr'       => [
+            //         'placeholder'  => 'VD: Team 1',
+            //         'data-counter' => 120,
+            //     ],
+            // ])
             ->add('huan_luyen_vien', 'text', [
                 'label'      => 'Huấn luyện viên',
                 'label_attr' => ['class' => 'control-label required'],
@@ -39,7 +39,7 @@ class ThachthucForm extends FormAbstract
                 'label'      => 'Thí sinh 1',
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [
-                    'placeholder'  => 'VD: Võ Hoàng Yến',
+                    'placeholder'  => 'VD: 234',
                     'data-counter' => 120,
                 ],
             ])
@@ -47,7 +47,7 @@ class ThachthucForm extends FormAbstract
                 'label'      => 'Thí sinh 2',
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [
-                    'placeholder'  => 'VD: Võ Hoàng Yến',
+                    'placeholder'  => 'VD: 234',
                     'data-counter' => 120,
                 ],
             ])
@@ -55,7 +55,7 @@ class ThachthucForm extends FormAbstract
                 'label'      => 'Thí sinh 3',
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [
-                    'placeholder'  => 'VD: Võ Hoàng Yến',
+                    'placeholder'  => 'VD: 234',
                     'data-counter' => 120,
                 ],
             ])
@@ -63,7 +63,7 @@ class ThachthucForm extends FormAbstract
                 'label'      => 'Thí sinh 4',
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [
-                    'placeholder'  => 'VD: Võ Hoàng Yến',
+                    'placeholder'  => 'VD: 234',
                     'data-counter' => 120,
                 ],
             ])
@@ -71,7 +71,7 @@ class ThachthucForm extends FormAbstract
                 'label'      => 'Thí sinh 5',
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [
-                    'placeholder'  => 'VD: Võ Hoàng Yến',
+                    'placeholder'  => 'VD: 234',
                     'data-counter' => 120,
                 ],
             ])
@@ -79,7 +79,7 @@ class ThachthucForm extends FormAbstract
                 'label'      => 'Thí sinh 6',
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [
-                    'placeholder'  => 'VD: Võ Hoàng Yến',
+                    'placeholder'  => 'VD: 234',
                     'data-counter' => 120,
                 ],
             ])
@@ -87,7 +87,7 @@ class ThachthucForm extends FormAbstract
                 'label'      => 'Thí sinh 7',
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [
-                    'placeholder'  => 'VD: Võ Hoàng Yến',
+                    'placeholder'  => 'VD: 234',
                     'data-counter' => 120,
                 ],
             ])
@@ -95,7 +95,7 @@ class ThachthucForm extends FormAbstract
                 'label'      => 'Thí sinh 8',
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [
-                    'placeholder'  => 'VD: Võ Hoàng Yến',
+                    'placeholder'  => 'VD: 234',
                     'data-counter' => 120,
                 ],
             ])

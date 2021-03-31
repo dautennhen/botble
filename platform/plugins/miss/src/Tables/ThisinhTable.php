@@ -317,10 +317,9 @@ class ThisinhTable extends TableAbstract
         return [
             'thisinhs.luot_bau_chon' => [
                 'title'    => 'Lượt bầu chọn',
-                'type'     => 'select',
+                'type'     => 'text',
                 'validate' => 'required|max:120',
-                'default_value'     => '0',
-                'callback' => 'getLuotBau',
+                'default_value'     => '0'
             ],
             'thisinhs.id_truong'         => [
                 'title'    => 'Trường ĐH',
@@ -337,11 +336,6 @@ class ThisinhTable extends TableAbstract
     public function getTruongs(): array
     {
         return $this->truongRepository->pluck('ten_truong', 'id');
-    }
-    
-    public function getLuotBau(): array
-    {
-        return [5, 10, 15, 20];
     }
     /**
      * @return array

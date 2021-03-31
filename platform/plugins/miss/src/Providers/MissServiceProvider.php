@@ -137,16 +137,6 @@ class MissServiceProvider extends ServiceProvider
             ]);
 
             dashboard_menu()->registerItem([
-                'id'          => 'cms-plugins-thachthuc',
-                'priority'    => 0,
-                'parent_id'   => 'cms-plugins-miss',
-                'name'        => 'plugins/miss::thachthuc.name',
-                'icon'        => null,
-                'url'         => route('thachthuc.index'),
-                'permissions' => ['thachthuc.index'],
-            ]);
-
-            dashboard_menu()->registerItem([
                 'id'          => 'cms-plugins-ts1000',
                 'priority'    => 0,
                 'parent_id'   => 'cms-plugins-miss',
@@ -156,6 +146,16 @@ class MissServiceProvider extends ServiceProvider
                 'permissions' => ['ts1000.index'],
             ]);
 
+            dashboard_menu()->registerItem([
+                'id'          => 'cms-plugins-thachthuc',
+                'priority'    => 0,
+                'parent_id'   => 'cms-plugins-miss',
+                'name'        => 'plugins/miss::thachthuc.name',
+                'icon'        => null,
+                'url'         => route('thachthuc.index'),
+                'permissions' => ['thachthuc.index'],
+            ]);
+            
             dashboard_menu()->registerItem([
                 'id'          => 'cms-plugins-hoatdong',
                 'priority'    => 0,

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'name'   => 'Thách thức',
+    'name'   => 'Thử thách',
     'create' => 'New thachthuc',
     'edit'   => 'Edit thachthuc',
 ];

@@ -23,7 +23,7 @@ class HoatdongForm extends FormAbstract
                 'label'      => 'Team',
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [
-                    'placeholder'  => trans('core/base::forms.name_placeholder'),
+                    'placeholder'  => 'VD: 1',
                     'data-counter' => 120,
                 ],
             ])
@@ -31,11 +31,11 @@ class HoatdongForm extends FormAbstract
                 'label'      => 'URL Video',
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [
-                    'placeholder'  => trans('core/base::forms.name_placeholder'),
+                    'placeholder'  => 'VD: https://youtu.be/rGfwu-ERRIE',
                     'data-counter' => 120,
                 ],
             ])
-            ->add('tran_thai', 'customSelect', [
+            ->add('trang_thai', 'customSelect', [
                 'label'      => trans('core/base::tables.status'),
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [

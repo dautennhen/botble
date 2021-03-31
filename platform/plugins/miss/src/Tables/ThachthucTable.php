@@ -51,17 +51,17 @@ class ThachthucTable extends TableAbstract
     {
         $data = $this->table
             ->eloquent($this->query())
-            ->editColumn('ten_team', function ($item) {
-                if (!Auth::user()->hasPermission('thachthuc.edit')) {
-                    return $item->ten_team;
-                }
-                return Html::link(route('thachthuc.edit', $item->id), $item->ten_team);
-            })
+            // ->editColumn('ten_team', function ($item) {
+            //     if (!Auth::user()->hasPermission('thachthuc.edit')) {
+            //         return $item->ten_team;
+            //     }
+            //     return Html::link(route('thachthuc.edit', $item->id), $item->ten_team);
+            // })
             ->editColumn('checkbox', function ($item) {
                 return $this->getCheckbox($item->id);
             })
             ->editColumn('huan_luyen_vien', function ($item) {
-                return $item->huan_luyen_vien;
+                return Html::link(route('thachthuc.edit', $item->id), $item->huan_luyen_vien);
             })
             ->editColumn('image', function ($item) {
                 if ($this->request()->input('action') == 'csv') {
@@ -144,11 +144,11 @@ class ThachthucTable extends TableAbstract
                 'title' => trans('core/base::tables.id'),
                 'width' => '20px',
             ],
-            'ten_team' => [
-                'name'  => 'thachthucs.ten_team',
-                'title' => 'Tên team',
-                'class' => 'text-left',
-            ],
+            // 'ten_team' => [
+            //     'name'  => 'thachthucs.ten_team',
+            //     'title' => 'Tên team',
+            //     'class' => 'text-left',
+            // ],
             'huan_luyen_vien' => [
                 'name'  => 'thachthucs.huan_luyen_vien',
                 'title' => 'Huấn luyện viên',
@@ -164,16 +164,16 @@ class ThachthucTable extends TableAbstract
                 'title' => 'Ảnh HLV',
                 'class' => 'text-left',
             ],
-            'created_at' => [
-                'name'  => 'thachthucs.created_at',
-                'title' => trans('core/base::tables.created_at'),
-                'width' => '100px',
-            ],
-            'status' => [
-                'name'  => 'thachthucs.status',
-                'title' => trans('core/base::tables.status'),
-                'width' => '100px',
-            ],
+            // 'created_at' => [
+            //     'name'  => 'thachthucs.created_at',
+            //     'title' => trans('core/base::tables.created_at'),
+            //     'width' => '100px',
+            // ],
+            // 'status' => [
+            //     'name'  => 'thachthucs.status',
+            //     'title' => trans('core/base::tables.status'),
+            //     'width' => '100px',
+            // ],
         ];
     }
 

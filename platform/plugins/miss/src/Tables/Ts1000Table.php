@@ -321,7 +321,7 @@ class Ts1000Table extends TableAbstract
         // $query = $model->select($select);
 
 
-        $query = $model->select($select)->limit(1000);
+        $query = $model->select($select);
 
         // dd($query->pluck('so_bao_danh'));
 
@@ -377,7 +377,7 @@ class Ts1000Table extends TableAbstract
             ],
             'mo_ta_ly_lich' => [
                 'name'  => 'thisinhs.mo_ta_ly_lich',
-                'title' => 'Mô tả ba',
+                'title' => 'Mô tả bản thân',
                 'class' => 'text-left',
             ],
 
@@ -536,16 +536,28 @@ class Ts1000Table extends TableAbstract
     {
         // return $this->getBulkChanges();
         return [
-            'thisinhs.so_bao_danh' => [
-                'title'    => 'Số báo danh',
+            'thisinhs.luot_bau_chon' => [
+                'title'    => 'Lượt bầu chọn',
                 'type'     => 'text',
                 'validate' => 'required|max:120',
+                'default_value'     => '0'
+            ],
+            'thisinhs.topbauchon' => [
+                'title'    => ' Top Bầu chọn',
+                'type'     => 'text',
+                'validate' => 'required|max:120',
+                'default_value'     => '0'
             ],
             'thisinhs.id_truong'         => [
-                'title'    => 'Trường',
+                'title'    => 'Trường Đại Học',
                 'type'     => 'select-search',
                 'validate' => 'required',
                 'callback' => 'getTruongs',
+            ],
+            'thisinhs.created_at' => [
+                'title'    => 'Top TS đăng ký nhanh',
+                'type'     => 'text',
+                'validate' => 'required|max:120',
             ],
             // 'thisinhs.created_at' => [
             //     'title' => trans('core/base::tables.created_at'),
@@ -564,20 +576,20 @@ class Ts1000Table extends TableAbstract
     {
         return $this->truongRepository->pluck('truongs.ten_truong', 'truongs.id');
     }
-    // public function applyFilterCondition($query, string $key, string $operator, ?string $value)
-    // {
-    //     switch ($key) {
-    //         case 'thisinhs.created_at':
-    //             if (!$value) {
-    //                 break;
-    //             }
+    public function applyFilterCondition($query, string $key, string $operator, ?string $value)
+    {
 
-    //             $value = Carbon::createFromFormat(config('core.base.general.date_format.date'), $value)->toDateString();
-    //             return $query->whereDate($key,  $operator, $value)->orderBy('thisinhs.created_at','asc')->limit(2)->get();
-    //     }
+        switch ($key) {
+            case 'thisinhs.created_at':
+                return $query->orderBy('thisinhs.created_at','asc')->limit($value);
 
-    //     return parent::applyFilterCondition($query, $key, $operator, $value);
-    // }
+            case 'thisinhs.topbauchon':
+                return $query->orderBy('thisinhs.luot_bau_chon','desc')->limit($value);
+
+        }
+
+        return parent::applyFilterCondition($query, $key, $operator, $value);
+    }
     public function getDefaultButtons(): array
     {
         return [

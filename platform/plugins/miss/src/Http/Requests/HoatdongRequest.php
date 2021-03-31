@@ -17,8 +17,8 @@ class HoatdongRequest extends Request
     public function rules()
     {
         return [
-            'name'   => 'required',
-            'status' => Rule::in(BaseStatusEnum::values()),
+            // 'name'   => 'required',
+            // 'status' => Rule::in(BaseStatusEnum::values()),
         ];
     }
 }
